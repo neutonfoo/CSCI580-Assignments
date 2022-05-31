@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neuton's CSCI 580 Assignments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="https://www.neutonfoo.com" target="_blank">My CSCI 580 Assignments</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6 text-center my-2">
+                <button type="button" class="btn btn-outline-secondary assignment-button active"
+                    data-assignment="a2">A2:
+                    Scan
+                    Converter and
+                    Z-Buffer</button>
+            </div>
+            <div class="col-6 text-center my-2">
+                <button type="button" class="btn btn-outline-secondary assignment-button" data-assignment="a3">A3: Utah
+                    Teapot in World
+                    Space</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-center my-2">
+                <button type="button" class="btn btn-outline-secondary assignment-button" data-assignment="a4">A4: Utah
+                    Teapot
+                    Transformations +
+                    Shading</button>
+            </div>
+            <div class="col-6 text-center my-2">
+                <button type="button" class="btn btn-outline-secondary assignment-button" data-assignment="a5">A5: Utah
+                    Teapot Texture
+                    Mapping</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center my-2">
+                <button type="button" class="btn btn-outline-secondary assignment-button" data-assignment="a6">A6: Utah
+                    Teapot
+                    Anti-Aliasing</button>
+            </div>
+        </div>
+        <div class="row">
+            <iframe src="a2.html" class="col-12 border" height="1000px"></iframe>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pp rn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script>
+        const assignmentIFrame = document.querySelector("iframe")
+        const assignmentButtons = document.querySelectorAll(".assignment-button")
+        let activeAssignmentButton = document.querySelector(".active")
+
+        for (const assignmentButton of assignmentButtons) {
+            assignmentButton.onclick = function () {
+                const assignmentNumber = this.dataset.assignment;
+                assignmentIFrame.src = `${assignmentNumber}.html`
+
+                activeAssignmentButton.classList.remove('active')
+
+                activeAssignmentButton = this
+                activeAssignmentButton.classList.add('active')
+
+            }
+        }
+
+    </script>
+</body>
+
+</html>
